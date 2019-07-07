@@ -5,14 +5,14 @@ const choices = [
   {
     type: 'name',
     name: 'webroot',
-    message: 'Choose the server root path',
+    message: 'Server root path',
     default: '/var/www/html',
     validate: mateFieldRequired,
   },
   {
     type: 'name',
     name: 'baseprojectgit',
-    message: 'Repository to be cloned on the root path',
+    message: 'Repository to be cloned on the root path (if nothing is passed the root directory will be empty)',
   },
 ]
 

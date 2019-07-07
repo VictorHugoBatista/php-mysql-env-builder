@@ -1,4 +1,3 @@
-import {mateFieldRequired} from '../choices/choices-functions'
 import {generateChoices as generateChoicesDefault} from '../choices/default'
 
 const choices = [
