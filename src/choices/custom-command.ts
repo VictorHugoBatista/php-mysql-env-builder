@@ -1,3 +1,4 @@
+import {mateFieldRequired} from '../choices/choices-functions'
 import {generateChoices as generateChoicesDefault} from '../choices/default'
 
 const choices = [
@@ -6,6 +7,7 @@ const choices = [
     name: 'webroot',
     message: 'Choose the server root path',
     default: '/var/www/html',
+    validate: mateFieldRequired,
   },
   {
     type: 'name',
