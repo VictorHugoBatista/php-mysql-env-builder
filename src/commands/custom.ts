@@ -1,5 +1,5 @@
 import {Command} from '@oclif/command'
-import {generateChoices} from '../choices/default';
+import {generateChoices} from '../choices/custom-command';
 const inquirer = require('inquirer')
 
 export default class Custom extends Command {
