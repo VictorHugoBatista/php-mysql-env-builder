@@ -3,6 +3,7 @@ const inquirer = require('inquirer')
 import {generateChoices} from '../choices/wp-command'
 import InputData from '../DTO/input-data'
 import Generator from '../generator/generator'
+import GeneratorWp from '../generator/generator-types/generator-wp'
 import InputDataInterface from '../interfaces/input-data-interface'
 
 export default class Wp extends Command {
@@ -25,7 +26,7 @@ export default class Wp extends Command {
           ...answers,
           baseprojectgit: 'https://github.com/WordPress/WordPress.git',
         };
-        (new Generator()).generate(args.envname, new InputData(input))
+        (new Generator(new GeneratorWp())).generate(args.envname, new InputData(input))
       })
   }
 }
