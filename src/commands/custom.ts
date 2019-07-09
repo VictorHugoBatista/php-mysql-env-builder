@@ -3,7 +3,7 @@ const inquirer = require('inquirer')
 import {generateChoices} from '../choices/custom-command'
 import InputData from '../DTO/input-data'
 import Generator from '../generator/generator'
-import GeneratorCommon from '../generator/generator-types/generator-common'
+import GeneratorTypeCommon from '../generator/generator-types/generator-type-common'
 import InputDataInterface from '../interfaces/input-data-interface'
 
 export default class Custom extends Command {
@@ -22,7 +22,7 @@ export default class Custom extends Command {
     inquirer
       .prompt(generateChoices(args.envname))
       .then((answers: InputDataInterface) => {
-        (new Generator(new GeneratorCommon())).generate(args.envname, new InputData(answers))
+        (new Generator(new GeneratorTypeCommon())).generate(args.envname, new InputData(answers))
       })
   }
 }
