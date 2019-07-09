@@ -1,4 +1,4 @@
-import InputData from '../interfaces/input-data'
+import {InputData} from '../interfaces/input-data'
 const fs = require('fs')
 const Git = require('nodegit')
 

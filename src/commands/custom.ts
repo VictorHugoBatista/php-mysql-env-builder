@@ -2,7 +2,7 @@ import {Command} from '@oclif/command'
 const inquirer = require('inquirer')
 import {generateChoices} from '../choices/custom-command'
 import Generator from '../generator/generator'
-import InputData from '../interfaces/input-data'
+import {InputData} from '../interfaces/input-data'
 
 export default class Custom extends Command {
   static description = 'generate a custom php/mysql docker environment'
