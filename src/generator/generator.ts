@@ -4,18 +4,9 @@ const fs = require('fs')
 const Git = require('nodegit')
 
 export default class Generator {
-  private readonly _config: InputData
-
-  public constructor(envname: string, config: InputDataInterface) {
-    this._config = new InputData({
-      envname,
-      ...config,
-    })
-  }
-
-  public generate(): void {
-    const envname = this._config.getData('envname')
-    const baseprojectgit = this._config.getData('baseprojectgit')
+  public generate(envname: string, config: InputDataInterface): void {
+    const configData = new InputData(config)
+    const baseprojectgit = configData.getData('baseprojectgit')
     fs.mkdirSync(envname)
     fs.mkdirSync(`${envname}/mysql`)
     if (baseprojectgit && baseprojectgit !== '') {

@@ -20,7 +20,7 @@ export default class Custom extends Command {
     inquirer
       .prompt(generateChoices(args.envname))
       .then((answers: InputDataInterface) => {
-        (new Generator(args.envname, answers)).generate()
+        (new Generator()).generate(args.envname, answers)
       })
   }
 }
