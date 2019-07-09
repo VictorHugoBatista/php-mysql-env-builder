@@ -1,6 +1,6 @@
 import {mateFieldRequired} from '../choices/choices-functions'
 
-export const generateChoices = (baseName: string): Array<any> => {
+export const generateChoices = (baseName: string): Array<object> => {
   return [
     {
       type: 'name',

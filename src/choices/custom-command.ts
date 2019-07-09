@@ -16,7 +16,7 @@ const choices = [
   },
 ]
 
-export const generateChoices = (baseName: string) => {
+export const generateChoices = (baseName: string): Array<object> => {
   return [
     ...generateChoicesDefault(baseName),
     ...choices,
