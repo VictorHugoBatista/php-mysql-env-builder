@@ -1,4 +1,4 @@
-export interface InputData {
+export default interface InputDataInterface {
   envname?: string
   dbname: string
   dbpass: string

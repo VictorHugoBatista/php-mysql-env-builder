@@ -1,8 +1,8 @@
-import {InputData as InputDataInterface} from '../interfaces/input-data'
+import InputDataInterface from '../interfaces/input-data-interface'
 
 export default class InputData {
   private readonly _inputData: Map<string, string>
-  private readonly _defaultData = {
+  private readonly _defaultData: InputDataInterface = {
     envname: '',
     dbname: '',
     dbpass: '',

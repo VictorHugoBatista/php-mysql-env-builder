@@ -1,5 +1,5 @@
 import InputData from '../DTO/input-data'
-import {InputData as InputDataInterface} from '../interfaces/input-data'
+import InputDataInterface from '../interfaces/input-data-interface'
 const fs = require('fs')
 const Git = require('nodegit')
 
