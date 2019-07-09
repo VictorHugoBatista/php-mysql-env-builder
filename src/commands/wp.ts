@@ -1,6 +1,6 @@
 import {Command} from '@oclif/command'
 const inquirer = require('inquirer')
-import {generateChoices} from '../choices/wp-command';
+import {generateChoices} from '../choices/wp-command'
 
 export default class Wp extends Command {
   static description = 'generate a php/mysql docker environment with an empty wordpress installation on the server root directory'
