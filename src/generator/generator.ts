@@ -1,4 +1,5 @@
 import InputData from '../interfaces/input-data'
+const fs = require('fs')
 
 export default class Generator {
   private readonly _config: InputData
@@ -11,6 +12,13 @@ export default class Generator {
   }
 
   public generate(): void {
-    console.log(this._config.envname)
+    fs.mkdirSync(this._config.envname)
+    fs.mkdirSync(`${this._config.envname}/mysql`)
+    if (this._config.baseprojectgit &&
+      this._config.baseprojectgit !== '') {
+      // download repo
+    } else {
+      fs.mkdirSync(`${this._config.envname}/public`)
+    }
   }
 }
