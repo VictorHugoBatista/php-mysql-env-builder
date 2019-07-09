@@ -1,6 +1,7 @@
 import {Command} from '@oclif/command'
 const inquirer = require('inquirer')
 import {generateChoices} from '../choices/custom-command'
+import InputData from '../DTO/input-data'
 import Generator from '../generator/generator'
 import InputDataInterface from '../interfaces/input-data-interface'
 
@@ -20,7 +21,7 @@ export default class Custom extends Command {
     inquirer
       .prompt(generateChoices(args.envname))
       .then((answers: InputDataInterface) => {
-        (new Generator()).generate(args.envname, answers)
+        (new Generator()).generate(args.envname, new InputData(answers))
       })
   }
 }
