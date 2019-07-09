@@ -1,28 +1,30 @@
-import {InputData} from '../interfaces/input-data'
+import InputData from '../DTO/input-data'
+import {InputData as InputDataInterface} from '../interfaces/input-data'
 const fs = require('fs')
 const Git = require('nodegit')
 
 export default class Generator {
   private readonly _config: InputData
 
-  public constructor(envname: string, config: InputData) {
-    this._config = {
+  public constructor(envname: string, config: InputDataInterface) {
+    this._config = new InputData({
       envname,
       ...config,
-    }
+    })
   }
 
   public generate(): void {
-    fs.mkdirSync(this._config.envname)
-    fs.mkdirSync(`${this._config.envname}/mysql`)
-    if (this._config.baseprojectgit &&
-      this._config.baseprojectgit !== '') {
-      Git.Clone(this._config.baseprojectgit, `${this._config.envname}/public`)
+    const envname = this._config.getData('envname')
+    const baseprojectgit = this._config.getData('baseprojectgit')
+    fs.mkdirSync(envname)
+    fs.mkdirSync(`${envname}/mysql`)
+    if (baseprojectgit && baseprojectgit !== '') {
+      Git.Clone(baseprojectgit, `${envname}/public`)
         .then(() => {
           console.log('Download ended')
         })
     } else {
-      fs.mkdirSync(`${this._config.envname}/public`)
+      fs.mkdirSync(`${envname}/public`)
     }
   }
 }

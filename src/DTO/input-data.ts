@@ -15,10 +15,15 @@ export default class InputData {
   }
 
   public constructor(inputData: InputDataInterface) {
-    this._inputData = new Map({
+    const inputDataMap = new Map()
+    const inputDataComplete = {
       ...this._defaultData,
       ...(inputData as any),
+    }
+    Object.keys(inputDataComplete).forEach(key => {
+      inputDataMap.set(key, inputDataComplete[key])
     })
+    this._inputData = inputDataMap
   }
 
   public getData(dataKey: any): string {
