@@ -1,5 +1,6 @@
 import InputData from '../interfaces/input-data'
 const fs = require('fs')
+const Git = require('nodegit')
 
 export default class Generator {
   private readonly _config: InputData
@@ -16,7 +17,10 @@ export default class Generator {
     fs.mkdirSync(`${this._config.envname}/mysql`)
     if (this._config.baseprojectgit &&
       this._config.baseprojectgit !== '') {
-      // download repo
+      Git.Clone(this._config.baseprojectgit, `${this._config.envname}/public`)
+        .then(() => {
+          console.log('Download ended')
+        })
     } else {
       fs.mkdirSync(`${this._config.envname}/public`)
     }
