@@ -1,3 +1,5 @@
+import InputData from '../DTO/input-data'
+
 export default interface GeneratorTypeInterface {
-  afterClone(): void,
+  afterClone(envname: string, data: InputData): void,
 }

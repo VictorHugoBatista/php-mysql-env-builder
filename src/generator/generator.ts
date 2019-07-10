@@ -15,10 +15,11 @@ export default class Generator {
     fs.mkdirSync(envname)
     fs.mkdirSync(`${envname}/mysql`)
     if (baseprojectgit && baseprojectgit !== '') {
+      console.log('Downloading project base...')
       Git.Clone(baseprojectgit, `${envname}/public`)
         .then(() => {
-          console.log('Download ended')
-          this._generatorType.afterClone()
+          console.log('Project base downloaded')
+          this._generatorType.afterClone(envname, config)
         })
     } else {
       fs.mkdirSync(`${envname}/public`)
