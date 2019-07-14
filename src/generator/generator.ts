@@ -29,6 +29,7 @@ export default class Generator {
   }
 
   private generateDockerComposeFile(completeConfig: InputData): void {
-    (new SampleManager('docker-compose.yml', completeConfig))
+    (new SampleManager('docker-compose.yml'))
+      .replaceContent(completeConfig)
   }
 }
