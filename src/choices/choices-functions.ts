@@ -1,1 +1,1 @@
-export const mateFieldRequired = (input: string): boolean => input !== ''
+export const makeFieldRequired = (input: string): boolean => input !== ''
