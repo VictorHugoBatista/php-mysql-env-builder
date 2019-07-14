@@ -26,7 +26,7 @@ export default class Custom extends Command {
           envname: args.envname,
           ...answers,
         });
-        (new Generator(new GeneratorTypeCommon())).generate(args.envname, inputData)
+        (new Generator(new GeneratorTypeCommon())).generate(inputData)
       })
   }
 }

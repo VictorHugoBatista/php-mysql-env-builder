@@ -11,8 +11,9 @@ export default class Generator {
     this._generatorType = generatorType
   }
 
-  public generate(envname: string, config: InputData): void {
+  public generate(config: InputData): void {
     const baseprojectgit = config.getData('baseprojectgit')
+    const envname = config.getData('envname')
     fs.mkdirSync(envname)
     this.generateDockerComposeFile(config)
     fs.mkdirSync(`${envname}/mysql`)

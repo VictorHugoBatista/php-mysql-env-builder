@@ -27,7 +27,7 @@ export default class Wp extends Command {
           ...answers,
           baseprojectgit: 'https://github.com/WordPress/WordPress.git',
         });
-        (new Generator(new GeneratorTypeWp())).generate(args.envname, inputData)
+        (new Generator(new GeneratorTypeWp())).generate(inputData)
       })
   }
 }
