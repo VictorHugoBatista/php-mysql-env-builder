@@ -1,4 +1,4 @@
-import {makeFieldRequired} from '../choices/choices-functions'
+import {makeFieldRequired, makeFieldUrl} from '../choices/choices-functions'
 import {generateChoices as generateChoicesDefault} from '../choices/default'
 
 const choices = [
@@ -13,6 +13,7 @@ const choices = [
     type: 'name',
     name: 'baseprojectgit',
     message: 'Repository to be cloned on the root path (if nothing is passed the root directory will be empty)',
+    validate: makeFieldUrl,
   },
 ]
 
