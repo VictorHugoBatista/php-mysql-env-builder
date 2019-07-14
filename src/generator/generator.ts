@@ -14,7 +14,7 @@ export default class Generator {
   public generate(envname: string, config: InputData): void {
     const baseprojectgit = config.getData('baseprojectgit')
     fs.mkdirSync(envname)
-    this.generateDockerComposeFile()
+    this.generateDockerComposeFile(config)
     fs.mkdirSync(`${envname}/mysql`)
     if (baseprojectgit && baseprojectgit !== '') {
       console.log('Downloading project base...')
@@ -28,7 +28,7 @@ export default class Generator {
     }
   }
 
-  private generateDockerComposeFile(): void {
-    (new SampleManager('docker-compose.yml'))
+  private generateDockerComposeFile(completeConfig: InputData): void {
+    (new SampleManager('docker-compose.yml', completeConfig))
   }
 }
