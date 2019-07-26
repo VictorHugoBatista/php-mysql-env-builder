@@ -22,7 +22,11 @@ export default class Custom extends Command {
     inquirer
       .prompt(generateChoices(args.envname))
       .then((answers: InputDataInterface) => {
-        (new Generator(new GeneratorTypeCommon())).generate(args.envname, new InputData(answers))
+        const inputData = new InputData({
+          envname: args.envname,
+          ...answers,
+        });
+        (new Generator(new GeneratorTypeCommon())).generate(inputData)
       })
   }
 }

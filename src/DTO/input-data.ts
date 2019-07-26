@@ -9,7 +9,7 @@ export default class InputData {
     vhost: '',
     imageweb: '',
     imagedb: '',
-    webroot: '',
+    webroot: '/var/www/html',
     baseprojectgit: '',
     themerepo: '',
   }
@@ -28,5 +28,9 @@ export default class InputData {
 
   public getData(dataKey: any): string {
     return this._inputData.get(dataKey) || ''
+  }
+
+  public getAll(): Map<string, string> {
+    return this._inputData
   }
 }

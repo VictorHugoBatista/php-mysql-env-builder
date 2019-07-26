@@ -1,7 +1,9 @@
 import InputData from '../DTO/input-data'
 import GeneratorTypeInterface from '../interfaces/generator-type-interface'
+import SampleManager from '../sample-manager/sample-manager'
 const fs = require('fs')
 const Git = require('nodegit')
+const path = require('path')
 
 export default class Generator {
   private readonly _generatorType: GeneratorTypeInterface
@@ -10,9 +12,11 @@ export default class Generator {
     this._generatorType = generatorType
   }
 
-  public generate(envname: string, config: InputData): void {
+  public generate(config: InputData): void {
     const baseprojectgit = config.getData('baseprojectgit')
+    const envname = config.getData('envname')
     fs.mkdirSync(envname)
+    this.generateDockerComposeFile(config, envname)
     fs.mkdirSync(`${envname}/mysql`)
     if (baseprojectgit && baseprojectgit !== '') {
       console.log('Downloading project base...')
@@ -24,5 +28,11 @@ export default class Generator {
     } else {
       fs.mkdirSync(`${envname}/public`)
     }
+  }
+
+  private generateDockerComposeFile(completeConfig: InputData, envname: string): void {
+    (new SampleManager('docker-compose.yml'))
+      .replaceContent(completeConfig)
+      .save(envname)
   }
 }

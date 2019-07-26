@@ -22,11 +22,12 @@ export default class Wp extends Command {
     inquirer
       .prompt(generateChoices(args.envname))
       .then((answers: InputDataInterface) => {
-        const input = {
+        const inputData = new InputData({
+          envname: args.envname,
           ...answers,
           baseprojectgit: 'https://github.com/WordPress/WordPress.git',
-        };
-        (new Generator(new GeneratorTypeWp())).generate(args.envname, new InputData(input))
+        });
+        (new Generator(new GeneratorTypeWp())).generate(inputData)
       })
   }
 }
