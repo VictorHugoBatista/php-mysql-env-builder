@@ -9,7 +9,7 @@ export default class InputData {
     vhost: '',
     imageweb: '',
     imagedb: '',
-    webroot: '',
+    webroot: '/var/www/html',
     baseprojectgit: '',
     themerepo: '',
   }
