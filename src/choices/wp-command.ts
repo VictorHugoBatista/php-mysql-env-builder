@@ -5,7 +5,7 @@ const choices = [
   {
     type: 'name',
     name: 'themerepo',
-    message: 'Theme repository to be cloned (if nothing is passed no theme will be cloned)',
+    message: 'Theme repository to be cloned (if nothing is given no theme will be cloned)',
     validate: makeFieldUrl,
   },
 ]
