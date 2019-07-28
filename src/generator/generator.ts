@@ -3,7 +3,6 @@ import GeneratorTypeInterface from '../interfaces/generator-type-interface'
 import SampleManager from '../sample-manager/sample-manager'
 const fs = require('fs')
 const Git = require('nodegit')
-const path = require('path')
 
 export default class Generator {
   private readonly _generatorType: GeneratorTypeInterface
