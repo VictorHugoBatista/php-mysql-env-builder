@@ -3,7 +3,6 @@ import GeneratorTypeInterface from '../interfaces/generator-type-interface'
 import SampleManager from '../sample-manager/sample-manager'
 const fs = require('fs')
 const Git = require('nodegit')
-const path = require('path')
 
 export default class Generator {
   private readonly _generatorType: GeneratorTypeInterface
@@ -15,6 +14,10 @@ export default class Generator {
   public generate(config: InputData): void {
     const baseprojectgit = config.getData('baseprojectgit')
     const envname = config.getData('envname')
+    if (fs.existsSync(envname)) {
+      console.log(`A file with '${envname}' name already exists!`)
+      return
+    }
     fs.mkdirSync(envname)
     this.generateDockerComposeFile(config, envname)
     fs.mkdirSync(`${envname}/mysql`)
