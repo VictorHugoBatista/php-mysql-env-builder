@@ -1,6 +1,6 @@
 {
   "name": "php-mysql-env-builder",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Victor Hugo @VictorHugoBatista",
   "bin": {
     "mybuilder": "./bin/run"
