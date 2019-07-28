@@ -14,6 +14,10 @@ export default class Generator {
   public generate(config: InputData): void {
     const baseprojectgit = config.getData('baseprojectgit')
     const envname = config.getData('envname')
+    if (fs.existsSync(envname)) {
+      console.log(`A file with '${envname}' name already exists!`)
+      return
+    }
     fs.mkdirSync(envname)
     this.generateDockerComposeFile(config, envname)
     fs.mkdirSync(`${envname}/mysql`)
