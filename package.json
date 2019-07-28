@@ -1,6 +1,6 @@
 {
   "name": "php-mysql-env-builder",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Victor Hugo @VictorHugoBatista",
   "bin": {
     "mybuilder": "./bin/run"
@@ -10,6 +10,9 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "inquirer": "^6.4.1",
+    "is-url": "^1.2.4",
+    "nodegit": "^0.24.3",
     "tslib": "^1"
   },
   "devDependencies": {

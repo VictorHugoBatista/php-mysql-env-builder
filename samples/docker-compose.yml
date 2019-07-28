@@ -1,0 +1,29 @@
+ENVNAME-db:
+  image: IMAGEDB
+  container_name: ENVNAME-db
+  volumes_from:
+    - "mariadb-data"
+  ports:
+    - "3306"
+  environment:
+    - MYSQL_DATABASE=DBNAME
+    - MYSQL_ROOT_PASSWORD=DBPASS
+
+mariadb-data:
+  image: tianon/true
+  volumes:
+    - ./mysql:/var/lib/mysql
+
+ENVNAME-web:
+  image: IMAGEWEB
+  container_name: ENVNAME-web
+  ports:
+    - "80:80"
+  links:
+    - ENVNAME-db
+  volumes:
+    - ./public/:/var/www/html
+  environment:
+    - VIRTUAL_HOST=VHOST
+    - MYSQL_HOST=ENVNAME-db
+    - APACHE_DOC_ROOT=WEBROOT
