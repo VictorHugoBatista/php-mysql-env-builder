@@ -19,7 +19,7 @@ $ npm install -g php-mysql-env-builder
 $ mybuilder COMMAND
 running command...
 $ mybuilder (-v|--version|version)
-php-mysql-env-builder/0.0.0 linux-x64 node-v10.16.0
+php-mysql-env-builder/1.0.0 linux-x64 node-v10.16.0
 $ mybuilder --help [COMMAND]
 USAGE
   $ mybuilder COMMAND
@@ -44,7 +44,7 @@ ARGUMENTS
   ENVNAME  Name of the builded environment. Will be used as base to another stuffs
 ```
 
-_See code: [src/commands/custom.ts](https://github.com/VictorHugoBatista/php-mysql-env-builder/blob/v0.0.0/src/commands/custom.ts)_
+_See code: [src/commands/custom.ts](https://github.com/VictorHugoBatista/php-mysql-env-builder/blob/v1.0.0/src/commands/custom.ts)_
 
 ## `mybuilder help [COMMAND]`
 
@@ -75,5 +75,5 @@ ARGUMENTS
   ENVNAME  Name of the builded environment. Will be used as base to another stuffs
 ```
 
-_See code: [src/commands/wp.ts](https://github.com/VictorHugoBatista/php-mysql-env-builder/blob/v0.0.0/src/commands/wp.ts)_
+_See code: [src/commands/wp.ts](https://github.com/VictorHugoBatista/php-mysql-env-builder/blob/v1.0.0/src/commands/wp.ts)_
 <!-- commandsstop -->

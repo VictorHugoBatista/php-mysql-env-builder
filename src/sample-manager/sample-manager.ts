@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 export default class SampleManager {
-  private readonly _sampleFilesPath: string = path.join(__dirname, '..', '..', 'samples')
+  private readonly _sampleFilesPath: string = path.join(__dirname, '..', '..', 'bin', 'samples')
   private readonly _sampleFilePath: string
   private readonly _sampleFileName: string
   private _sampleFileContent: string
